@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, HStack, Stack, Text } from "@chakra-ui/react";
+import { HStack, Stack, Text } from "@chakra-ui/react";
 import SingleAppointment from "./SingleAppointment";
 import { Appointment2 } from "../../../assets";
 function NextAppointment() {

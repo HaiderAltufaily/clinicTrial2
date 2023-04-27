@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, HStack, Stack, Text } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import PersonalDetails from "./PersonalDetails";
 import NextAppointment from "./NextAppointments";
 import { useSelector } from "react-redux";
