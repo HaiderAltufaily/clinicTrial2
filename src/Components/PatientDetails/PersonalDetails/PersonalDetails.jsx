@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, HStack, Stack, Text } from "@chakra-ui/react";
+import { Avatar, Box, Flex, HStack, Stack, Text } from "@chakra-ui/react";
 
 function PersonalDetails({ name, address, phoneNumber, gender, imageUrl }) {
   const details = [
@@ -22,41 +22,39 @@ function PersonalDetails({ name, address, phoneNumber, gender, imageUrl }) {
   ];
   return (
     <Stack fontSize={"lg"}>
-      <HStack align={"center"}>
-        <Avatar
-          src={imageUrl}
-          bg="        "
-          name="نور محمد"
-          color="white"
-          boxSize={"120px"}
-          borderRadius={"38px"}
-        />
-        <Stack>
-          <Text fontWeight={"normal"} fontSize={"lg"}>
-            {" "}
-            {name}{" "}
-          </Text>
-          <Text dir="ltr" color="lightText">
-            +964 {phoneNumber}
-          </Text>
-        </Stack>
-      </HStack>
-      <HStack fontSize={"lg"}>
-        <Stack spacing="8px">
-          {details.map((detail) => (
-            <Stack key={detail.title}>
-              <Text color="lightText">{detail.title}:</Text>
-            </Stack>
-          ))}
-        </Stack>
-        <Stack>
-          {details.map((detail) => (
-            <Stack key={detail.title}>
-              <Text> {detail.content} </Text>
-            </Stack>
-          ))}
-        </Stack>
-      </HStack>
+      <Flex align={"flex-start"} justify={"space-between"} flexWrap={"wrap"}>
+        <HStack align={"center"}>
+          <Avatar
+            src={imageUrl}
+            bg="        "
+            name={name}
+            color="white"
+            boxSize={"120px"}
+            borderRadius={"38px"}
+          />
+          <Stack wordBreak={"break-word"}>
+            <Text fontWeight={"normal"} fontSize={"lg"}>
+              {" "}
+              {name}{" "}
+            </Text>
+            <Text textAlign={"right"} dir="ltr" color="lightText">
+              +964 {phoneNumber}
+            </Text>
+          </Stack>
+        </HStack>
+      </Flex>
+      <Stack spacing="8px" flexWrap="wrap">
+        {details.map((detail) => (
+          <HStack key={detail.title} maxW="100%">
+            <Text color="lightText" minWidth="90px">
+              {detail.title}:
+            </Text>
+            <Box wordBreak="break-word">
+              <Text>{detail.content}</Text>
+            </Box>
+          </HStack>
+        ))}
+      </Stack>
     </Stack>
   );
 }

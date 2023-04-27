@@ -13,7 +13,13 @@ import MedicalReport from "./MedicalReport";
 
 function AppointmentReport() {
   return (
-    <Tabs flexGrow={1} size={"sm"} variant={"unstyled"} colorScheme="blue">
+    <Tabs
+      w="200px"
+      flexGrow={1}
+      size={"sm"}
+      variant={"unstyled"}
+      colorScheme="blue"
+    >
       <TabList color="primary" fontWeight={"medium"}>
         <HStack>
           <Tab
@@ -39,12 +45,9 @@ function AppointmentReport() {
       <TabPanels>
         <TabPanel px="0">
           <Stack>
-            <SingleVisit />
-            <SingleVisit />
-            <SingleVisit />
-            <SingleVisit />
-            <SingleVisit />
-            <SingleVisit />
+            {Array.from({ length: 9 }).map((visit, i) => (
+              <SingleVisit key={i} />
+            ))}
           </Stack>
         </TabPanel>
         <TabPanel px="0">

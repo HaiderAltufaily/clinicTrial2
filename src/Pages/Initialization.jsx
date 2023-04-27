@@ -23,7 +23,7 @@ function Initialization() {
   };
 
   return (
-    <Stack bg="#F7F7FA" py="24px" px="30px">
+    <Stack maxH="100vh" overflow={"hidden"} bg="#F7F7FA" py="24px" px="30px">
       <Stack bg="white" align="center">
         <Container mt="10" dir="rtl" maxW={"4xl"} py="8">
           <CustomProgressBar

@@ -5,7 +5,26 @@ import AppointmentReport from "../Components/PatientDetails/Appointments&Report"
 
 function PatientDetails() {
   return (
-    <HStack flexBasis={"58%"} align="start">
+    <HStack
+      css={{
+        "&::-webkit-scrollbar": {
+          width: "4px",
+          height: "4px",
+        },
+        "&::-webkit-scrollbar-track": {
+          width: "6px",
+        },
+        "&::-webkit-scrollbar-thumb": {
+          background: "#c9c9c9",
+          borderRadius: "24px",
+        },
+      }}
+      pl="2"
+      maxH={"68vh"}
+      overflow={"auto"}
+      flexBasis={"58%"}
+      align="start"
+    >
       <MainPatientDetails />
       <AppointmentReport />
     </HStack>

@@ -1,4 +1,12 @@
-import { Avatar, Box, Collapse, HStack, Stack, Text } from "@chakra-ui/react";
+import {
+  Avatar,
+  Box,
+  Collapse,
+  Flex,
+  HStack,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
 import React, { useState } from "react";
 import { Calender } from "../../../assets";
 import SingleAppointment from "./SingleAppointment";
@@ -10,24 +18,32 @@ function SingleVisit() {
       border="1px solid"
       borderColor={"stroke"}
       spacing="18px"
-      p="16px"
       boxShadow={"softShadow"}
       bg="white"
     >
       <HStack
+        p={{ md: "12px", xl: "16px" }}
         cursor={"pointer"}
         onClick={() => setShowAppointmentDetails((prev) => !prev)}
         justify={"space-between"}
       >
-        <HStack spacing={"8"}>
+        <Flex
+          w="100%"
+          flexDir={{ base: "column", md: "column", xl: "row" }}
+          spacing={"6"}
+          textAlign={"right"}
+        >
           <HStack align="center">
-            <Calender />
-            <Stack spacing="0">
+            <Box w="22px" h="24px">
+              <Calender />
+            </Box>
+
+            <Stack wordBreak={"break-word"} spacing="0">
               <Text color="lightText">تاريخ المراجعة</Text>
-              <Text fontSize={"lg"}>December 1 , 2021 </Text>
+              <Text fontSize={{ base: "md", xl: "lg" }}>December 1 , 2021</Text>
             </Stack>
           </HStack>
-          <HStack align={"center"}>
+          <HStack mr="6" align={"center"}>
             <Avatar
               src={`https://randomuser.me/api/portraits/med/men/66.jpg`}
               name="نور محمد"
@@ -35,14 +51,14 @@ function SingleVisit() {
               boxSize={"45px"}
               borderRadius={"18px"}
             />
-            <Stack spacing="0">
+            <Stack wordBreak={"break-word"} spacing="0">
               <Text color="lightText"> الطبيب المعالج </Text>
-              <Text fontSize={"lg"} dir="ltr">
-                د.سارة احمد{" "}
+              <Text textAlign={"right"} fontSize={{ base: "md", xl: "lg" }}>
+                د.سارة احمد
               </Text>
             </Stack>
           </HStack>
-        </HStack>
+        </Flex>
         <Box
           w="0"
           h="0"
@@ -57,7 +73,7 @@ function SingleVisit() {
         />
       </HStack>
       <Collapse in={showAppointmentDetails}>
-        <Stack>
+        <Stack p={{ md: "12px", xl: "16px" }}>
           <SingleAppointment />
           <SingleSession />
         </Stack>
