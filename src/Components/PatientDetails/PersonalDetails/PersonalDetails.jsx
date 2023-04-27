@@ -33,7 +33,7 @@ function PersonalDetails({ name, address, phoneNumber, gender, imageUrl }) {
             borderRadius={"38px"}
           />
           <Stack wordBreak={"break-word"}>
-            <Text fontWeight={"normal"} fontSize={"lg"}>
+            <Text fontFamily={"dinMedium"} fontSize={"lg"}>
               {" "}
               {name}{" "}
             </Text>
