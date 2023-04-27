@@ -1,13 +1,16 @@
 import {
   Avatar,
   Box,
+  Flex,
   HStack,
   LinkBox,
   LinkOverlay,
+  SimpleGrid,
   Stack,
   Text,
 } from "@chakra-ui/react";
 import React from "react";
+import { ThreeDots } from "../../assets";
 import CardMenu from "./CardMenu";
 import { Link } from "react-router-dom";
 
@@ -52,6 +55,7 @@ function PatientCard({
         bg: "veryLightGray",
         border: "1px solid stroke",
       }}
+      overflow={"hidden"}
     >
       <HStack align={"flex-start"} justify={"space-between"}>
         <HStack align={"center"}>
@@ -64,50 +68,48 @@ function PatientCard({
             borderRadius={"28px"}
           />
 
-          <Stack>
+          <Stack wordBreak={"break-word"}>
             <LinkOverlay as={Link} to={`/patients/${id}`}>
               {" "}
-              <Text color="#4A5568" fontFamily={"dinMedium"} fontSize={"lg"}>
-                {" "}
-                {name}{" "}
-              </Text>
+              <Box>
+                <Text color="#4A5568" fontFamily={"dinMedium"} fontSize={"lg"}>
+                  {" "}
+                  {name}{" "}
+                </Text>
+              </Box>
             </LinkOverlay>
-            <Text dir="ltr" color="lightText">
+            <Text textAlign={"right"} dir="ltr" color="lightText">
               +964 {phoneNumber}
             </Text>
           </Stack>
         </HStack>
-        <Box top="0" left="3" position={"absolute"}>
-          <CardMenu
-            patient={{
-              name,
-              address,
-              phoneNumber,
-              gender,
-              imageUrl,
-              birthdate,
-              id,
-            }}
-          />
-        </Box>
       </HStack>
+      <Box top="-2" left="3" position={"absolute"}>
+        <CardMenu
+          patient={{
+            name,
+            address,
+            phoneNumber,
+            gender,
+            imageUrl,
+            birthdate,
+            id,
+          }}
+        />
+      </Box>
 
-      <HStack>
-        <Stack spacing="8px">
-          {details.map((detail) => (
-            <Stack key={detail.title}>
-              <Text color="lightText">{detail.title}:</Text>
-            </Stack>
-          ))}
-        </Stack>
-        <Stack>
-          {details.map((detail) => (
-            <Stack key={detail.title}>
-              <Text> {detail.content} </Text>
-            </Stack>
-          ))}
-        </Stack>
-      </HStack>
+      <Stack spacing="8px" flexWrap="wrap">
+        {details.map((detail) => (
+          <HStack key={detail.title} maxW="100%">
+            <Text color="lightText" minWidth="80px">
+              {detail.title}:
+            </Text>
+            <Box wordBreak="break-word">
+              <Text>{detail.content}</Text>
+            </Box>
+          </HStack>
+        ))}
+      </Stack>
     </LinkBox>
   );
 }

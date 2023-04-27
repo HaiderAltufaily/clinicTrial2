@@ -122,14 +122,21 @@ function Patients() {
         align={"flex-start"}
         overflow={{ sm: "auto", lg: "hidden" }}
       >
-        <Stack ml="3" overflow={"auto"} flexGrow={"1"}>
+        <Stack flexBasis={"48%"} ml="3" overflow={"auto"} flexGrow={"1"}>
           {showTable ? (
             <PatientsTable patients={searchedPatients} />
           ) : (
             <SimpleGrid
-              columns={{ base: 1, md: 2, lg: id ? 2 : 3, "2xl": id ? 2 : 4 }}
+              columns={{
+                base: 1,
+                md: id ? 1 : 2,
+                // lg: id ? 1 : 3,
+
+                xl: id ? 2 : 3,
+                "2xl": id ? 2 : 4,
+              }}
               gap="20px"
-              pl="3"
+              pl="2"
               flexGrow={1}
               maxH={"68vh"}
               overflow={"auto"}

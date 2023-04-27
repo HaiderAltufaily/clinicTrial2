@@ -155,12 +155,12 @@ export default function PatientsTable({ patients }) {
     selectedFlatRows,
   } = tableInstance;
   initialState.pageSize = 12;
-  const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
   return (
     <Flex
       css={{
         "&::-webkit-scrollbar": {
           width: "4px",
+          height: "4px",
         },
         "&::-webkit-scrollbar-track": {
           width: "6px",
@@ -174,7 +174,7 @@ export default function PatientsTable({ patients }) {
       w="100%"
       px="0px"
       maxH="68vh"
-      overflowX={{ base: "scroll", lg: "hidden" }}
+      overflowX={{ base: "scroll" }}
       boxShadow={"softShadow"}
     >
       <Table
@@ -185,7 +185,7 @@ export default function PatientsTable({ patients }) {
         mb="24px"
         color="#4A5568"
       >
-        <Thead borderBottom={"1px solid"} borderColor={borderColor}>
+        <Thead borderBottom={"1px solid"} borderColor={"gray.200"}>
           {headerGroups.map((headerGroup, index) => (
             <Tr {...headerGroup.getHeaderGroupProps()} key={index}>
               {headerGroup.headers.map((column, index) =>
@@ -213,7 +213,6 @@ export default function PatientsTable({ patients }) {
                         {...column.getHeaderProps(
                           column.getSortByToggleProps()
                         )}
-                        //   pe="10px"
                         key={index}
                       >
                         <Flex
