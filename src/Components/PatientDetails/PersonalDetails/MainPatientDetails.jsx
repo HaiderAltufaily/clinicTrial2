@@ -12,7 +12,7 @@ function MainPatientDetails() {
   const currentPatient = patients.find((p) => p.id === +id);
   return (
     <Stack
-      minW="300px"
+      minW={{ base: "auto", md: "300px" }}
       spacing="44px"
       mx="2px"
       ml={{ lg: "20px" }}

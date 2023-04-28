@@ -94,7 +94,7 @@ function Patients() {
     []
   );
   return (
-    <Stack spacing="0" px="22px">
+    <Stack spacing="0" px={{ base: "6px", md: "22px" }}>
       <HStack mb="18px" mt="24px" align="center ">
         <InputGroup
           border="1px solid #EFF4F8"
@@ -147,7 +147,6 @@ function Patients() {
                 "2xl": id ? 2 : 4,
               }}
               gap="20px"
-              pl="2"
               maxH={"68vh"}
               overflow={"auto"}
               css={{
