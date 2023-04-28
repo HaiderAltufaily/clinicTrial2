@@ -16,7 +16,18 @@ const shadows = {
 };
 const colors = {
   primary: "#7B61FF",
-
+  primaryScheme: {
+    50: "#f9f6fd",
+    100: "#e5daf8",
+    200: "#d3bef4",
+    300: "#b795ec",
+    400: "#a379e7",
+    500: "#8952e0",
+    600: "#7434db",
+    700: "#6023c0",
+    800: "#4f1d9e",
+    900: "#3b1676",
+  },
   lightPurple: "rgba(123, 97, 255, 0.15)",
   secondary: "#42DDDD",
   secondary15: "rgba(66, 221, 219, 0.15)",

@@ -14,7 +14,7 @@ import MedicalReport from "./MedicalReport";
 function AppointmentReport() {
   return (
     <Tabs
-      w="200px"
+      minW="200px"
       flexGrow={1}
       size={"sm"}
       variant={"unstyled"}

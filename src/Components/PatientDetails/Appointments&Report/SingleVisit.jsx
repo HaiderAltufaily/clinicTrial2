@@ -22,14 +22,14 @@ function SingleVisit() {
       bg="white"
     >
       <HStack
-        p={{ md: "12px", xl: "16px" }}
+        p={{ base: "12px", md: "12px", xl: "16px" }}
         cursor={"pointer"}
         onClick={() => setShowAppointmentDetails((prev) => !prev)}
         justify={"space-between"}
       >
         <Flex
           w="100%"
-          flexDir={{ base: "column", md: "column", xl: "row" }}
+          flexDir={{ base: "row", md: "column", xl: "row" }}
           spacing={"6"}
           textAlign={"right"}
         >

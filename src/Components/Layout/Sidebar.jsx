@@ -23,7 +23,7 @@ function Sidebar() {
       px="15px"
       w="80px"
       bg="white"
-      h="100vh"
+      // h="100vh"
       top="0"
     >
       {/* TOP */}

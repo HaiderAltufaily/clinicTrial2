@@ -1,11 +1,12 @@
-import { Avatar, HStack, Stack, Text } from "@chakra-ui/react";
+import { Avatar, Flex, HStack, Stack, Text } from "@chakra-ui/react";
 import React from "react";
 import MainPatientDetails from "../Components/PatientDetails/PersonalDetails/MainPatientDetails";
 import AppointmentReport from "../Components/PatientDetails/Appointments&Report";
 
 function PatientDetails() {
   return (
-    <HStack
+    <Flex
+      flexDir={{ base: "column", md: "row" }}
       css={{
         "&::-webkit-scrollbar": {
           width: "4px",
@@ -19,15 +20,16 @@ function PatientDetails() {
           borderRadius: "24px",
         },
       }}
-      pl="2"
+      p="2"
       maxH={"68vh"}
       overflow={"auto"}
       flexBasis={"58%"}
-      align="start"
+      align={"start"}
+      w={{ base: "100%", lg: "auto" }}
     >
       <MainPatientDetails />
       <AppointmentReport />
-    </HStack>
+    </Flex>
   );
 }
 
