@@ -29,7 +29,7 @@ function SingleVisit() {
       >
         <Flex
           w="100%"
-          flexDir={{ base: "row", md: "column", xl: "row" }}
+          flexDir={{ base: "column", md: "column", xl: "row" }}
           spacing={"6"}
           textAlign={"right"}
         >
