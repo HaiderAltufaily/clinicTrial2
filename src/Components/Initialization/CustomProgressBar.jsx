@@ -11,7 +11,7 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import ImageUpload from "../Patients/ImageUpload";
+import ImageUpload from "./ImageUpload";
 
 const steps = [
   { id: 1, label: "معلومات النظام" },
@@ -23,8 +23,8 @@ const steps = [
 ];
 
 const CustomProgressBar = ({ currentStep, setCurrentStep }) => {
-  const activeColor = useColorModeValue("blue.500", "blue.300");
-  const inactiveColor = useColorModeValue("gray.300", "gray.500");
+  const activeColor = "primary";
+  const inactiveColor = "#E8ECF8 ";
 
   return (
     <Box>
@@ -32,7 +32,7 @@ const CustomProgressBar = ({ currentStep, setCurrentStep }) => {
         {steps.map((step, index) => (
           <React.Fragment key={step.id}>
             {index > 0 && (
-              <Box bg="gray.300" width="100%" mr="2">
+              <Box bg="#E8ECF8" width="100%" mr="2">
                 <motion.div
                   initial={{ width: 0 }}
                   animate={{
@@ -42,10 +42,11 @@ const CustomProgressBar = ({ currentStep, setCurrentStep }) => {
                   exit={{ width: 0, transition: { duration: 0.5 } }}
                 >
                   <Progress
-                    height="3px"
+                    height="2px"
                     value={currentStep >= step.id ? 100 : 0}
-                    colorScheme="blue"
+                    colorScheme="primary"
                     borderRadius="0"
+                    bg="primary"
                   />
                 </motion.div>
               </Box>
@@ -70,7 +71,7 @@ const CustomProgressBar = ({ currentStep, setCurrentStep }) => {
                 justify={"center"}
               ></HStack>
               <Text
-                color={currentStep >= step.id ? activeColor : inactiveColor}
+                color={currentStep >= step.id ? activeColor : "lightText"}
                 position="absolute"
                 top="-40px"
                 w="md"
@@ -81,24 +82,6 @@ const CustomProgressBar = ({ currentStep, setCurrentStep }) => {
           </React.Fragment>
         ))}
       </HStack>
-
-      {/* <Flex justifyContent="space-between" mt="8">
-        <Button
-          variant={"primary"}
-          onClick={handlePrevStep}
-          disabled={currentStep === 1}
-          mr="4"
-        >
-          Previous
-        </Button>
-        <Button
-          variant={"primary"}
-          onClick={handleNextStep}
-          disabled={currentStep === steps.length}
-        >
-          {currentStep === steps.length ? "Finish" : "Next"}
-        </Button>
-      </Flex> */}
     </Box>
   );
 };

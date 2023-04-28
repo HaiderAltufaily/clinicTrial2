@@ -103,6 +103,7 @@ function Patients() {
           boxShadow={"sm"}
           dir="ltr"
           maxW="400px"
+          w={{ base: "auto", lg: "400px" }}
         >
           <Input
             onChange={handleSearch}
@@ -113,31 +114,40 @@ function Patients() {
           />
           <InputRightElement children={<Search />} />
         </InputGroup>
-        <AdvancedFilter />
-        <SortMenu />
+        {
+          <HStack display={{ base: "none", md: "flex" }}>
+            <AdvancedFilter />
+            <SortMenu />
+          </HStack>
+        }
       </HStack>
 
       <Flex
-        flexDir={{ base: "column", lg: "row" }}
+        flexDir={{ base: "column", md: "column", lg: "row" }}
         align={"flex-start"}
         overflow={{ sm: "auto", lg: "hidden" }}
       >
-        <Stack flexBasis={"48%"} ml="3" overflow={"auto"} flexGrow={"1"}>
+        <Stack
+          pl={{ base: "4", md: "0" }}
+          w={{ base: "100%", lg: id ? "48%" : "100%" }}
+          ml="3"
+          overflow={"auto"}
+        >
           {showTable ? (
             <PatientsTable patients={searchedPatients} />
           ) : (
             <SimpleGrid
               columns={{
+                sm: 1,
                 base: 1,
-                md: id ? 1 : 2,
-                // lg: id ? 1 : 3,
+                md: 2,
+                lg: id ? 1 : 3,
 
                 xl: id ? 2 : 3,
                 "2xl": id ? 2 : 4,
               }}
               gap="20px"
               pl="2"
-              flexGrow={1}
               maxH={"68vh"}
               overflow={"auto"}
               css={{

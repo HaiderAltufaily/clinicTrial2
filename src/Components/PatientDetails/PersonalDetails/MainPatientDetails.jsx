@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, HStack, Stack, Text } from "@chakra-ui/react";
+import { Stack } from "@chakra-ui/react";
 import PersonalDetails from "./PersonalDetails";
 import NextAppointment from "./NextAppointments";
 import { useSelector } from "react-redux";
@@ -11,7 +11,16 @@ function MainPatientDetails() {
   const patients = useSelector((state) => state.patients.patients);
   const currentPatient = patients.find((p) => p.id === +id);
   return (
-    <Stack w="300px" spacing="44px" mx="2px" p="16px" pl="8px" bg="white">
+    <Stack
+      minW="300px"
+      spacing="44px"
+      mx="2px"
+      ml={{ lg: "20px" }}
+      p="16px"
+      pl="8px"
+      bg="white"
+      my={{ base: "20px", lg: "0" }}
+    >
       <PersonalDetails {...currentPatient} />
       <NextAppointment {...currentPatient} />
       <AssociatedDocuments />
